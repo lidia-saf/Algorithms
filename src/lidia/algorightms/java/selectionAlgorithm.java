@@ -21,7 +21,7 @@ public class selectionAlgorithm {
             System.out.println(Arrays.toString(newArray));
             int minValue = getMinValue(newArray);
             int minValueIndex = 0;
-            for (int j : array) {
+            for (int j = 0; j < array.length; ++j) {
                 if (array[j] == minValue) {
                     minValueIndex = j;
                 }

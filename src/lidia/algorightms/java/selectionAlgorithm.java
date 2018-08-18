@@ -19,8 +19,14 @@ public class selectionAlgorithm {
         for (int i=0; i < array.length; ++i) {
             int[] newArray = Arrays.copyOfRange(array, i, array.length);
             System.out.println(Arrays.toString(newArray));
-            int minValueIndex = getMinValueIndex(newArray);
-            System.out.println(minValueIndex);
+            int minValue = getMinValue(newArray);
+            int minValueIndex = 0;
+            for (int j : array) {
+                if (array[j] == minValue) {
+                    minValueIndex = j;
+                }
+            }
+            System.out.println(minValue + "and" + minValueIndex);
             temporaryHolder = array[i];
             System.out.println("tempHold: " + temporaryHolder);
             array[i] = array[minValueIndex];
@@ -31,17 +37,15 @@ public class selectionAlgorithm {
     return array;
     }
 
-    public static int getMinValueIndex(int[] array) {
+    public static int getMinValue(int[] array) {
         int minValue = Integer.MAX_VALUE;
         System.out.println(minValue);
-        int minValueIndex = 0;
         for (int i = 0; i < array.length; ++i) {
             if (array[i] < minValue) {
                 minValue = array[i];
-                minValueIndex = i;
-                System.out.println(minValue + "and" + minValueIndex);
+                System.out.println(minValue);
             }
         }
-        return minValueIndex;
+        return minValue;
     }
 }
